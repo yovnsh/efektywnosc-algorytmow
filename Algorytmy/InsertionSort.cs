@@ -4,7 +4,17 @@
     {
         public void Sort(int[] array)
         {
-            return;
+            for (int n = 1; n < array.Length; n++)
+            {
+                int current = array[n];
+                int i = n - 1;
+                while (i >= 0 && array[i] > current)
+                {
+                    array[i + 1] = array[i];
+                    i--;
+                }
+                array[i + 1] = current;
+            }
         }
     }
 }
