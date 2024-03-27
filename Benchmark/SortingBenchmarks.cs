@@ -1,13 +1,11 @@
-﻿using Algorytmy;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
+using Algorytmy;
+
 
 namespace Benchmarks
 {
     public class SortingBenchmarks
     {
-        const int ALMOST_SORTEDNESS = 10; // % elementów podmienionych
-        const int UNIQUE_VALUES = 10; // ilość unikalnych elementów
-
         private readonly int[] random;
         private readonly int[] sorted;
         private readonly int[] reversed;
@@ -22,7 +20,7 @@ namespace Benchmarks
             new QuicksortBuiltin(),
         };
 
-        public static IEnumerable<ISortingAlgorithm> sortingAlgorithms()
+        public static IEnumerable<ISortingAlgorithm> SortingAlgorithms()
         {
             foreach (var algo in algos)
             {
@@ -32,34 +30,14 @@ namespace Benchmarks
         
         public SortingBenchmarks(int dataSize)
         {
-            random = new int[dataSize];
-            sorted = new int[dataSize];
-            reversed = new int[dataSize];
-            almostSorted = new int[dataSize];
-            fewUnique = new int[dataSize];
-
-            var randomGenerator = new Random();
-
-            for (int i = 0; i < dataSize; i++)
-            {
-                random[i] = randomGenerator.Next();
-                sorted[i] = i;
-                reversed[dataSize - i - 1] = i;
-                almostSorted[i] = i;
-                fewUnique[i] = randomGenerator.Next(0, UNIQUE_VALUES);
-            }
-
-            int elementsToSwap = dataSize * ALMOST_SORTEDNESS / 100;
-
-            for (int i = 0; i < elementsToSwap; i++)
-            {
-                int index1 = randomGenerator.Next(0, dataSize);
-                int index2 = randomGenerator.Next(0, dataSize);
-                (almostSorted[index2], almostSorted[index1]) = (almostSorted[index1], almostSorted[index2]);
-            }
+            random = Generators.GetRandom(dataSize);
+            sorted = Generators.GetSorted(dataSize);
+            reversed = Generators.GetReversed(dataSize);
+            almostSorted = Generators.GetAlmostSorted(dataSize);
+            fewUnique = Generators.GetFewUnique(dataSize);
         }
 
-        [ParamsSource(nameof(sortingAlgorithms))]
+        [ParamsSource(nameof(SortingAlgorithms))]
         public ISortingAlgorithm Algorithm { get; set; }
 
         [Benchmark]
@@ -96,7 +74,9 @@ namespace Benchmarks
     // vvv warianty dla małych, średnich i dużych zbiorów danych vvv
     public class SortingBenchmarkSmall : SortingBenchmarks
     {
-        public SortingBenchmarkSmall() : base(10)
+        public const int DATA_SIZE = 10;
+
+        public SortingBenchmarkSmall() : base(DATA_SIZE)
         {
 
         }
@@ -104,7 +84,9 @@ namespace Benchmarks
 
     public class SortingBenchmarkMedium : SortingBenchmarks
     {
-        public SortingBenchmarkMedium() : base(1_000)
+        public const int DATA_SIZE = 1_000;
+
+        public SortingBenchmarkMedium() : base(DATA_SIZE)
         {
 
         }
@@ -112,7 +94,9 @@ namespace Benchmarks
 
     public class SortingBenchmarkLarge : SortingBenchmarks
     {
-        public SortingBenchmarkLarge() : base(100_000)
+        public const int DATA_SIZE = 100_000;
+
+        public SortingBenchmarkLarge() : base(DATA_SIZE)
         {
 
         }

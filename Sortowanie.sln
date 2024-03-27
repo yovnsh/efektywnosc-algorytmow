@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorytmy", "Algorytmy\Algorytmy.csproj", "{D7194139-188F-4A06-8AA8-4340D2BC11A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorytmy", "Algorytmy\Algorytmy.csproj", "{D7194139-188F-4A06-8AA8-4340D2BC11A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmark\Benchmarks.csproj", "{8E1E9787-7401-49C7-A7CE-958B5B1AE52D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmark\Benchmarks.csproj", "{8E1E9787-7401-49C7-A7CE-958B5B1AE52D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testy", "Testy\Testy.csproj", "{610274F4-D914-4DD2-A6CB-C96B0DE6BE52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8E1E9787-7401-49C7-A7CE-958B5B1AE52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E1E9787-7401-49C7-A7CE-958B5B1AE52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E1E9787-7401-49C7-A7CE-958B5B1AE52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{610274F4-D914-4DD2-A6CB-C96B0DE6BE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{610274F4-D914-4DD2-A6CB-C96B0DE6BE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{610274F4-D914-4DD2-A6CB-C96B0DE6BE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{610274F4-D914-4DD2-A6CB-C96B0DE6BE52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

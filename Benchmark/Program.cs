@@ -8,8 +8,8 @@ namespace Benchmarks
     {
         public static void Main()
         {
-            BenchmarkRunner.Run<SortingBenchmarkSmall>();
-            BenchmarkRunner.Run<SortingBenchmarkMedium>();
+            //BenchmarkRunner.Run<SortingBenchmarkSmall>();
+            //BenchmarkRunner.Run<SortingBenchmarkMedium>();
             BenchmarkRunner.Run<SortingBenchmarkLarge>();
         }
     }
