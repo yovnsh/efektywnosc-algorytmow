@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Algorytmy
 {
-    public class QuicksortClassical : ISortingAlgorithm
+    public class QuicksortBuiltin : ISortingAlgorithm
     {
         public void Sort(int[] array)
         {
-            return;
+            Array.Sort(array);
         }
     }
 }

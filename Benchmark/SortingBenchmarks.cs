@@ -18,8 +18,8 @@ namespace Benchmarks
         {
             new InsertionSort(),
             new MergeSort(),
-            new QuicksortClassical(),
-            new QuicksortHeuristic(),
+            new QuicksortClassic(),
+            new QuicksortBuiltin(),
         };
 
         public static IEnumerable<ISortingAlgorithm> sortingAlgorithms()
