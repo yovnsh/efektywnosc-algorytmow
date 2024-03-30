@@ -74,5 +74,10 @@ namespace Algorytmy
                 k++;
             }
         }
+
+        override public string ToString()
+        {
+            return "Merge Sort";
+        }
     }
 }

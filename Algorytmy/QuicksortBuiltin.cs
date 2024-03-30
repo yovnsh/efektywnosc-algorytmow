@@ -12,5 +12,10 @@ namespace Algorytmy
         {
             Array.Sort(array);
         }
+
+        override public string ToString()
+        {
+            return "Quicksort Builtin";
+        }
     }
 }
