@@ -13,46 +13,37 @@ namespace Algorytmy
             QuickSort(array, 0, array.Length - 1);
         }
 
-        private void Swap(int[] arr, int i, int j)
-        {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-
         private void QuickSort(int[] array, int left, int right)
         {
-            if (left >= right) return;
-
-            int pivot_i = left + ((right - left) / 2);
-            int pivot = array[pivot_i];
-
-            Swap(array, pivot_i, right);
-
-            int i = left;
-            int j = right;
-            while (i <= j)
+            if (left < right)
             {
-                while (array[i] < pivot)
+                int pivot = Partition(array, left, right);
+                QuickSort(array, left, pivot - 1);
+                QuickSort(array, pivot + 1, right);
+            }
+        }
+
+        private int Partition(int[] array, int left, int right)
+        {
+            int pivot = array[right];
+
+            int i = left - 1;
+            for (int j = left; j <= right - 1; j++)
+            {
+                if (array[j] < pivot)
                 {
                     i++;
-                }
-
-                while (array[j] > pivot)
-                {
-                    j--;
-                }
-
-                if (i <= j)
-                {
-                    Swap(array, i, j);
-                    i++;
-                    j--;
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
             }
 
-            if (left < j) QuickSort(array, left, j);
-            if (i < right) QuickSort(array, i, right);
+            int tmp = array[i + 1];
+            array[i + 1] = array[right];
+            array[right] = tmp;
+
+            return i + 1;
         }
     }
 }
